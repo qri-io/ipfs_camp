@@ -1,4 +1,4 @@
-# Analyzing peer counts the IPFS & libp2p network
+# 3 Analyzing peer counts the IPFS & libp2p network
 
 IPFS is built on top of a _peer-to-peer network_. Unlike centralized services that all work through a single point of coordination & control, any peer is free to connect directly to anyone else on the network. This also means with the right tools it's possible for anyone to gather statistics on the network.
 
@@ -16,7 +16,7 @@ What we really want is a continuously updating source of structured, reliable da
 Today we're going to use qri to do just that.
 
 
-### GIVE DATA
+### 3.1 GIVE DATA
 
 Here's a link. let's click:
 https://app.qri.io/b5/libp2p_node_count_hourly
@@ -32,7 +32,7 @@ $ qri add b5/libp2p_node_count_daily
 
 Congrats, the latest version of the entire dataset is now on your computer. Simple, right?
 
-### GIVE DATA SOMEWHERE ELSE
+### 3.2 GIVE DATA ELSEWHERE
 
 Now that we have a version of the dataset locally, there are a bunch of things we can do with it. Let's jump straight to working with the data in something other than Qri. type the following and hit enter:
 
@@ -56,7 +56,7 @@ Pick a spreadsheet program you have handy. Any of these will work:
 
 Each of these three programs will let you load the `node_count.csv` file, click a column header, and see the average in the bottom right hand corner. Congrats, you're now analyzing data in a tool of your choosing.
 
--- --
+### 3.3 two way conversation 
 
 With this data staring back at you, there are a number of questions you may start to ask as you click around, and that's the point.  At the time of writing `go-ipfs/0.4.21` is reporting something like 75-100 _thousand_ peers, while all other protocols are reporting far fewer. Wouldn't it be interesting to investigate that further?
 

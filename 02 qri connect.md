@@ -1,4 +1,4 @@
-# Understanding Qri Connect
+# 2 Understanding Qri Connect
 
 Next let's dig into relationship between Qri & IPFS. While we're at it, we'll give Qri a chance to make sure we're up to speed with the latest webapp. In a new terminal, type the following command and hit enter:
 
@@ -31,7 +31,7 @@ IPFS Addresses:
 
 All of these are configurable, and we can see all three are enabled with the section that lists `API port: ...`. To view the webapp open your browser to `http://localhost:2505`. If this it is the first time you've opened Qri, There's a good chance your browser will show a loading from the dweb screen. What gives?
 
-### The journey of the webapp
+### 2.1 The journey of the webapp
 The qri webapp is automatically shared and updated through IPFS. IPFS is a _peer-2-peer file system_, meaning the code to run the webapp is actually going to come from peers on the distributed web. So to get the webapp, we first need some peers. Let's explore qri's `peer` commands to check in on the webapp's progress.
 
     > How does Qri know which version of the webapp is current?
@@ -119,7 +119,6 @@ Let's check in on our webapp. The easiest way is check on progress is to leave y
 ipfs --api /ip4/127.0.0.1/tcp/5001 bitswap stat
 ```
 
-
 Normally, `ipfs bitswap stat` is a command you'd need to be running `ipfs daemon` to see. In this case `qri connect` is running an IPFS node already, and we made a point of telling IPFS where to look with the `--api` flag. when running `bitswap stat`, you'll generally see one of two results: 
 
 The point where we're still asking the network for the webapp:
@@ -201,7 +200,7 @@ When we see `rescursive` at the end, this means we've pinned the dataset to our 
 Now that we've added something locally, let's head back to the webapp, and we can now see some new options that weren't presented on the web, like the actual body data!
 
 
-### Grabbing Single Versions
+### 2.2 Grabbing Single Versions
 
 Finally, we should point out that what you're looking at is a single version of a dataset, not it's entire history of versions. This is a departure from traditional version control systems that default to loading entire histories.
 

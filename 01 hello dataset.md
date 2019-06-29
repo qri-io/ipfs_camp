@@ -1,4 +1,4 @@
-# Hello, Dataset
+# 1 Hello, Dataset
 
 
 Ok, we're going to start simple. create a new file called `hello.csv`, paste in the following contents and hit save:
@@ -35,6 +35,8 @@ That `me/hello` part is a dataset _name_. Names are a reference to the most rece
 
 You may notice we didn't provide a "commit message" to this version. In qri commit messages are optional. qri will create a summary of changes for you if you don't provide a message.
 
+### 1.1 Cleanup
+
 We'll get into more detail about the "IPFS bits" of qri in a second, so for now we'll skip to that validation error.
 
 Let's go back to our `hello.csv` file & make some changes. here we'll drop that comma and add `green` to the fourth row. We can happily edit this file because it's in version control.
@@ -60,6 +62,5 @@ $ qri log me/hello
 ```
 
 At any time you can press `q` on your keyboard to get back to the terminal prompt.
-
 
 Congrats. You've created a versioned, cleaned dataset!

@@ -1,8 +1,8 @@
-# Staying in Sync
+# 4. Automation
 
 We'll end today's workshop with a whirlwind tour through some of qri's more advanced features. We're going to build a very small dataset that does one thing: report the latest release of [js-ipfs](https://github.com/ipfs/js-ipfs). It's a hassle to constantly check for the latest release, so we're going to automate qri to do the checking for us. This is a classic example of syncing a dataset to an external source.
 
-### Starlark
+### 4.1 Starlark
 
 Qri includes a way to bind code to datasets using an embedded language called _starlark_. Starlark is a turing incomplete, python-like langauge we've built into Qri. Qri runs starlark in a sandbox, with  access to a [standard libarary](http://qri.io/docs/reference/starlib/) of tools . We can use starlark to create _transform scripts_ that automates part or all of creating a new version of a dataset.
 
@@ -54,9 +54,9 @@ congrats, you've just written and used your first transform script!
 
 When you provided a transform script to Qri, it embedded the script into the dataset, which means Qri now has a script in it's history we're able to access & reuse to make the dataset self-updating. This script also forms part of the _audit trail_ of your dataset, making it possible for others to understand exactly what steps you took to get from one transform state to the other.
 
-### Scheduled updates
+### 4.2 Scheduled updates
 
-But we have another problem. We don't know _when_ the next release of js-ipfs is coming out. We know the next release will be _soon_, but soon means we'll have to constantly check the js-ipfs repo, waiting for a release.
+We have another problem. We don't know _when_ the next release of js-ipfs is coming out. We know the next release will be _soon_, but soon means we'll have to constantly check the js-ipfs repo, waiting for a release.
 
 Qri includes an _update daemon_ that allows us to schedule checks for fresh data. We can start the daemon and _schedule_ our dataset to re-run the transform script at some time interval. On every interval occurance, the update daemon will start qri, run the transform script, and compare the results to existing dataset version. If nothing has changed, qri will record a record of having checked, but _not_ create a new version. If qri detects new data, it'll automatically update my dataset for me.
 
